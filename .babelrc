@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    [
+      "inline-import",
+      {
+        "extensions": [
+          ".css"
+        ]
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ],
+  "presets": [
+    "next/babel"
+  ],
+  "ignore": []
+}
