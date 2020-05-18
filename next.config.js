@@ -23,7 +23,7 @@ module.exports = () => {
   }), themeVariables);
 
   return withAntd({
-    cssModules: true,
+    cssModules: false,
     cssLoaderOptions: {
       sourceMap: false,
       importLoaders: 1,
