@@ -1,7 +1,8 @@
 module.exports = () => {
-  /* eslint-disable */
-  const darkTheme = require('@ant-design/dark-theme');
+  const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
   const { getThemeVariables } = require('antd/dist/theme');
+
+  const withAntd = require('./next-antd.config');
 
   const withLess = require('@zeit/next-less');
   const withCSS = require('@zeit/next-css');
@@ -21,17 +22,25 @@ module.exports = () => {
     compact: true,
   }), themeVariables);
 
-  return withCSS({
-    ...withLess({
-      lessLoaderOptions: {
-        javascriptEnabled: true,
-        modifyVars: modifyVars  // make your antd custom effective
-      }
-    }),
-    // cssModules: true,
+  return withAntd({
+    cssModules: true,
     cssLoaderOptions: {
+      sourceMap: false,
       importLoaders: 1,
-      localIdentName: '[local]___[hash:base64:5]'
-    }
-  });
+    },
+    lessLoaderOptions: {
+      javascriptEnabled: true,
+      modifyVars: modifyVars,
+    },
+    webpack: config => {
+      config.plugins.push(
+        new FilterWarningsPlugin({
+          // ignore ANTD chunk styles [mini-css-extract-plugin] warning
+          exclude: /mini-css-extract-plugin[^]*Conflicting order between:/,
+        }),
+      );
+
+      return config;
+    },
+  })
 };
