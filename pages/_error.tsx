@@ -1,12 +1,15 @@
 import { NextPageContext } from "next";
+import { Typography } from 'antd';
+
+const { Title } = Typography
 
 const Error = ({ statusCode }) => {
   return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : "An error occurred on client"}
-    </p>
+      <Title type="danger">
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
+          : "An error occurred on client"}
+      </Title>
   );
 };
 

@@ -1,0 +1,25 @@
+@import '../../assets/antd-custom';
+
+.table-builder {
+  max-height: 100px;
+  min-height: 100%;
+  height: 100%;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: @table-header-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: @popover-customize-border-color;
+  }
+}
+
+.table-builder__wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}

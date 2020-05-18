@@ -1,8 +1,32 @@
-@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
-@import '~antd/dist/antd.compact.less'; // Introduce the official compact less style entry file
+@import '../../assets/antd-custom';
+
 .logo {
-  color: @red-5;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  font-size: 30px;
+  font-weight: bold;
+
+  float: left;
+
+  padding-right: 20px;
+
+  color: @white;
+}
+
+.header {
+  z-index: 1;
+
+  box-shadow: @shadow-1-down;
+}
+
+.content {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+
+  width: 80%;
+  margin: auto;
+  padding-top: 40px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  background-color: @component-background;
 }
